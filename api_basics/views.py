@@ -4,6 +4,12 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework import generics, mixins
+from rest_framework.authentication import (
+    BasicAuthentication, 
+    SessionAuthentication,
+    TokenAuthentication
+)
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Article
 from .serializers import ArticleSerializer
@@ -20,6 +26,9 @@ class ArticleGenericAPIView(
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
     lookup_field = 'pk'
+    #authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, pk=None):
         if pk:

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     # third party
     'rest_framework',
+    # token authentication
+    'rest_framework.authtoken', 
 
     # mine
     'api_basics'
