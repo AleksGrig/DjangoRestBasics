@@ -19,6 +19,11 @@ from .serializers import ArticleSerializer
 # Create your views here.
 
 
+class ArticleModelViewSet(viewsets.ModelViewSet):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
+
+
 class ArticleGenericViewSet(viewsets.GenericViewSet,
                             mixins.ListModelMixin,
                             mixins.CreateModelMixin,

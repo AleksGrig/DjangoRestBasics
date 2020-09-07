@@ -8,11 +8,13 @@ from .views import (
     ArticleGenericAPIView,
     ArticleViewSet,
     ArticleGenericViewSet,
+    ArticleModelViewSet
 )
 
 router = DefaultRouter()
 router.register('router', ArticleViewSet, basename='article')
 router.register('genericviewset', ArticleGenericViewSet, basename='generic')
+router.register('modelviewset', ArticleModelViewSet, basename='model')
 
 urlpatterns = [
     path('', include(router.urls)),
