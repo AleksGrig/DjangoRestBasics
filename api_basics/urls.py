@@ -7,10 +7,12 @@ from .views import (
     ArticleDetailAPIView,
     ArticleGenericAPIView,
     ArticleViewSet,
+    ArticleGenericViewSet,
 )
 
 router = DefaultRouter()
 router.register('router', ArticleViewSet, basename='article')
+router.register('genericviewset', ArticleGenericViewSet, basename='generic')
 
 urlpatterns = [
     path('', include(router.urls)),
